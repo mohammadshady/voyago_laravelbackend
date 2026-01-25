@@ -25,7 +25,7 @@ class AdminController extends Controller
         $admins = $query->latest()->paginate(4);
 
         //return CityResource::collection($cities);
-        if ($admins->count() > 0) {
+        if ($admins->total() > 0) {
             return response()->json([
                 'status' => 'success',
                 'data' => AdminResource::collection($admins),

@@ -29,7 +29,7 @@ class CityController extends Controller
 
         $cities = $query->latest()->paginate(4);
 
-        if ($cities->count() > 0) {
+        if ($cities->total() > 0) {
             return response()->json([
                 'status' => 'success',
                 'data' => CityResource::collection($cities),
