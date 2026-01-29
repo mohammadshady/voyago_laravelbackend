@@ -17,8 +17,10 @@ class AdminController extends Controller
             $search = $request->search;
 
             $query->where(function ($q) use ($search) {
-                $q->where('name', 'like', "%$search%")
-                ->orWhere('english_name', 'like', "%$search%");
+                $q->where('email', 'like', "%$search%")
+                ->orWhere('english_name', 'like', "%$search%")
+                ->orWhere('mobile', 'like', "%$search%");
+
             });
         }
 
